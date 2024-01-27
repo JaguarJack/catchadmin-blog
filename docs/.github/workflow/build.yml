@@ -1,0 +1,26 @@
+name: 文章构建
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn build
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v5.0.0
+        with:
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SECRET }}
+          ARGS: -avzr --delete
+          SOURCE: 'docs/.vitepress/dist/'
+          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
+          TARGET: ${{ secrets.SERVER_WORKDIR }}
+          EXCLUDE: '/docs/.vitepress/, /node_modules/, /.github,/.git'

@@ -5,7 +5,7 @@ export default defineConfig({
   //title: '博客',
   base: '/',
   //description: 'CatchAdmin 博客',
-  assetsDir: 'blog/assets'
+  assetsDir: 'blog/assets',
   //
   cleanUrls: true,
   themeConfig: {

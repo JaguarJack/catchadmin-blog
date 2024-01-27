@@ -7,4 +7,8 @@ export default defineConfig({
   //description: 'CatchAdmin 博客',
   assetsDir: 'blog/assets'
   //
+  cleanUrls: true,
+  themeConfig: {
+    socialLinks: [{ icon: 'github', link: 'https://github.com/catch-admin/new-docs' }]
+  }
 })

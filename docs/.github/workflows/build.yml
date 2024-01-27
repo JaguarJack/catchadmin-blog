@@ -1,4 +1,5 @@
-name: 文章构建
+name: 博客构建
+on:
   push:
     branches:
       - master

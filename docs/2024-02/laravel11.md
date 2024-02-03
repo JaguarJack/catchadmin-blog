@@ -220,8 +220,6 @@ return Application::configure(basePath: dirname(__DIR__))
 
 - ☑️ 注册根目录
 - ☑️ 注册异常处理（需要自己写）
-- ☑️ 注册路由
-- ☑️ 注册中间件
 
 然后从 Application 内核看到的，其实内核中自动注册了这些，这里不用代码展示了，了解下就好了，感兴趣可以看代码
 
